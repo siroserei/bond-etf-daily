@@ -5,4 +5,4 @@ sys.path.insert(0,str(ROOT.parent))
 from app import load
 data=load()
 (ROOT/'data.json').write_text(json.dumps(data,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
-print('已生成 data.json：',data['asOf'],'，',len(data['funds']),'只 ETF')
+print('Updated data.json:',data['asOf'],',',len(data['funds']),'ETFs')
