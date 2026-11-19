@@ -1,13 +1,15 @@
 # 债券 ETF 日度跟踪
 
-Streamlit 网站入口：`streamlit_app.py`。网站读取仓库中的 `data.json`，访客无需 Excel 或 Wind。
+本仓库是本地网站的公开只读版本。访客打开 Streamlit 网站即可查看已发布的数据，不需要本地 Excel 或 Wind。
 
 ## 每日更新
 
-1. 在 Wind 中刷新并保存项目根目录的 `20261031债券ETF数据库.xlsx`。
-2. 双击本目录的 `update_and_push.bat`。它读取 Excel、更新 `data.json`，再推送到 GitHub。
-3. Streamlit Community Cloud 从 GitHub 获取更新。访客重新打开或点击页面的“刷新数据”查看新数据。
+1. 在 Wind 中刷新并保存上一级目录的 `20261031债券ETF数据库.xlsx`。
+2. 双击本目录的 `update_and_push.bat`。它从 Excel 生成 `data.json` 并推送到 GitHub。
+3. Streamlit 部署若已连接本仓库的 `main` 分支，将自动获取更新。访客重新打开网站即可看到最新数据。
 
-第一次运行前，电脑需具备 Python、openpyxl、Git，并已完成 GitHub 的 Git 登录。`update_data.py` 依赖本目录上一级的 `app.py` 解析工作簿；不要单独移动仓库目录。
+首次运行需要本机 Python、openpyxl、Git，以及可用的 GitHub 推送权限。`update_data.py` 依赖上一级目录的 `app.py`。
 
-资料来源：Wind，国盛证券研究所。当前没有净申赎和基准指数的独立历史序列，页面会标注数据缺口。
+净申赎为份额变化乘当日单位净值的估算值。网站会标注底稿中未更新的份额与规模日期。
+
+资料来源：Wind，国盛证券研究所。
